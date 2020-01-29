@@ -36,7 +36,7 @@ class AttendanceResponse {
     @Selector("#idPrzedmiot option")
     var subjects: List<Subject> = emptyList()
 
-    @Selector(".mainContainer > table thead th:not(:first-of-type):not(:last-of-type)")
+    @Selector(".mainContainer > table thead th:not(:first-of-type)")
     var months: List<String> = emptyList()
 
     @Selector(".mainContainer > table tbody tr")
@@ -47,7 +47,7 @@ class AttendanceResponse {
         @Selector("td", index = 0)
         lateinit var name: String
 
-        @Selector("td:not(:first-of-type):not(:last-of-type)", defValue = "0")
+        @Selector("td:not(:first-of-type)", defValue = "0")
         var value: List<String> = emptyList()
     }
 

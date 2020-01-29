@@ -66,9 +66,9 @@ fun AttendanceSummaryResponse.mapAttendanceSummaryList(gson: GsonBuilder): List<
         return stats[type][stats[0].keys.toTypedArray()[month + 1]]?.toInt() ?: 0
     }
 
-    return (1..12).map {
+    return (1..13).map {
         AttendanceSummary(
-            Month.of(if (it < 5) 8 + it else it - 4),
+            if (it == 13) null else Month.of(if (it < 5) 8 + it else it - 4),
             getMonthValue(0, it), getMonthValue(1, it), getMonthValue(2, it), getMonthValue(3, it),
             getMonthValue(4, it), getMonthValue(5, it), getMonthValue(6, it)
         )

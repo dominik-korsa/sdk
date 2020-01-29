@@ -3,7 +3,7 @@ package io.github.wulkanowy.sdk.pojo
 import org.threeten.bp.Month
 
 data class AttendanceSummary(
-    val month: Month,
+    val month: Month?,
     val presence: Int,
     val absence: Int,
     val absenceExcused: Int,

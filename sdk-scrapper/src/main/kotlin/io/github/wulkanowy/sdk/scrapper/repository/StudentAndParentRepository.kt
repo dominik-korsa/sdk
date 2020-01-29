@@ -61,7 +61,7 @@ class StudentAndParentRepository(private val api: StudentAndParentService) {
         return api.getAttendanceSummary(subjectId).map { res ->
             res.months.mapIndexedNotNull { i, month ->
                 if (res.summaryRows.all { it.value[i].isBlank() }) return@mapIndexedNotNull null
-                AttendanceSummary(romanToMonthEnum(month),
+                AttendanceSummary(if(month == "Razem") null else romanToMonthEnum(month),
                     res.summaryRows[0].value[i].toIntOrNull() ?: 0,
                     res.summaryRows[1].value[i].toIntOrNull() ?: 0,
                     res.summaryRows[2].value[i].toIntOrNull() ?: 0,
